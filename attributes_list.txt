@@ -3,59 +3,62 @@ The following is the list of possible attributes for videos included in the grou
 Each video collected must include a unique quality from each of the following categories:
 
 Video format:
-- Drone footage 
-- Security camera 
-- First person footage (handheld) 
-- Body cam 
-- Dash cam 
+- drone_footage 
+- security_camera 
+- first_person (handheld) 
+- body_cam 
+- dash_cam 
 
 World Region:
-- North America 
-- South America
-- Western Europe 
-- Eastern Europe
-- South East Asia 
-- Eastern Asia
-- Middle East
-- Sub-saharan Africa 
+- north_america 
+- south_america
+- western_europe 
+- eastern_europe
+- south_east_asia 
+- eastern_asia
+- middle _east
+- sub-saharan_africa 
 
 Locale:
-- City 
-- Rural 
-- Interior  
+- city 
+- rural 
+- interior (inside)
 
 Time:
-- Night (or Dark)
-- Day (or Bright)
+- night (if outside)
+- dark (if indoors)
+- day (if outside)
+- bright (if indoors)
 
 Weather:
-- Rain 
-- Snow
-- Overcast 
-- Partly cloudy 
-- Clear
-- Interior 
+- rain 
+- snow
+- overcast 
+- partly_cloudy 
+- clear
+- interior 
 
 Contexts (select all that apply):
-- Protest
-- No violence 
-- Contains violence 
-- Extreme violence 
+- protest
+- no_violence 
+- contains_violence 
+- extreme_violence 
 
 Use of force involving police or uniformed personnel
-- Arresting/restraining 
-- Use of gun
-- Use of blunt force
-- Uniformed personnel present, no use of force
-- Use of pepper spray 
-- Use of chemical smoke 
+- restraining 
+- use_of_gun
+- use_of_blunt_force
+- uniformed_personnel_present 
+- no_use_of_force
+- use_of_pepper_spray 
+- use_of_chemical_smoke 
 
 Vandalism
-- Throwing object 
-- Striking 
-- Spraying
+- throwing_object 
+- striking 
+- spraying
 
 Fight (must be physical)
-- Group fight 
-- Between individuals
-- Peaceful (contains none of the above)
+- group_fight 
+- one_on_one
+- peaceful (contains none of the above)

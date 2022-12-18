@@ -24,8 +24,8 @@ def parse_args():
     parser.add_argument('video_id', help='unique id for saving video and video info')
     parser.add_argument('--folder', default='src/ground_truth/videos', help='path/to/folder/of/videos')
     parser.add_argument('--gen-video', default=False, action='store_true', help='generates video overlay')
-    parser.add_argument('--gt', default='src/ground_truth/jsons/ground_truth', help='path/to/ground/truth/folder')
-    parser.add_argument('--pred', default='src/ground_truth/jsons/predictions', help='path/to/store/predictions')
+    parser.add_argument('--gt', default='src/ground_truth/data/ground_truth', help='path/to/ground/truth/folder')
+    parser.add_argument('--pred', default='src/ground_truth/data/predictions', help='path/to/store/predictions')
     parser.add_argument('--config', default='model_artifacts', help='path/to/config/folder')
     parser.add_argument('--checkpoint', default='model_artifacts', help='path/to/checkpoint/folder')
     args = parser.parse_args()
@@ -62,13 +62,13 @@ if __name__ == '__main__':
     attribute_stats = {}
 
     # create directory to store performance data
-    storage_path = f'src/ground_truth/{datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")}_model'
+    storage_path = f'{datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")}_model'
 
     if not os.path.exists(storage_path):
         os.makedirs(storage_path)
 
     # read video_attributes
-    with open('src/ground_truth/jsons/ground_truth/video_attributes.json') as file:
+    with open('src/ground_truth/data/video_attributes.json') as file:
         attributes = json.load(file)   
 
 

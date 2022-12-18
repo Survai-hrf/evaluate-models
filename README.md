@@ -5,6 +5,7 @@ This repo contains tools for evaluating SurvAI’s models by generating evaluati
 Each video has its own ground truth json located in src/ground_truth/data/ground_truth that contains the correct labels for each frame. Using ‘eval.py’ in the ‘src’ folder, SurvAI's object detection model will be ran on each video in the ‘videos’ folder and generate a predictions json in the same format as the ground truth. The json format is as follows:
 ```json
 [
+    [
     "train_index (int)",
     "class_prediction (int)",
     "confidence_score (float 0-1)",
@@ -12,6 +13,7 @@ Each video has its own ground truth json located in src/ground_truth/data/ground
     "y1 (int)",
     "x2 (int)",
     "y2 (int)"
+    ]
 ]
 ```
 The script will then compare the predicted labels to the ground truth labels to calculate precision, recall, and mAP. 
@@ -75,11 +77,11 @@ Adding to the command line will output the input video with overlayed bounding b
 
 ### --gt
 Specifies the path to the folder containing each videos ground truth json. Default is:
-- ```src/ground_truth/jsons/ground_truth```
+- ```src/ground_truth/data/ground_truth```
 
 ### --pred
 Specifies the path to store predicted labels. Default is:
-- ```src/ground_truth/jsons/predictions```
+- ```src/ground_truth/data/predictions```
 
 ### --config
 Specifies the path to folder containing model config. Default is:
@@ -89,29 +91,35 @@ Specifies the path to folder containing model config. Default is:
 Specifies the path to the folder containing model checkpoints. Default is:
 - ```model_artifacts```
 
-NOTE: These defaults will work if the repo is consistent with the format on github. Any changes in the format of the ground truth data will require you to specify these changes with their respective arguments.
+NOTE: These defaults will work if the repo is consistent with the format on github. Any changes to the format of the ground truth data will require you to specify these changes using their respective arguments in the command line when running 'eval.py'.
 
 ## Adding Videos to the Ground Truth Dataset
-1. ) Use ‘extract_frames.ipynb’ in the ‘tools’ folder to extract the individual frames from the video you wish to add to the dataset.
+1. ) Use ‘extract_frames.ipynb’ in the ‘tools’ folder to extract the individual frames from the video you wish to add to the ground truth dataset.
 
-2. ) Label the objects in each frame and export the annotations in coco json format. While coco format is not required, if a different format is used, a new script will need to be written to convert the non coco json to the required data format for ‘eval.py’.
+2. ) Label the objects in each frame using your preferred annotation tool/service and export the annotations in COCO json format. While COCO format is not required, if a different format is used, a new script will need to be written to convert the non-COCO json to the required data format for ‘eval.py’ (see the format depicted in the top section).
 
-3. ) For ground truth annotations in coco format, use ‘coco_to_ground_truth.ipynb’ in the ‘tools’ folder to convert the coco json to the required format. 
+3. ) For ground truth annotations in COCO format, use ‘coco_to_ground_truth.ipynb’ in the ‘tools’ folder to convert the COCO json to the required format. 
 
-4. ) Add the output json from ‘coco_to_ground_truth.ipynb’ to src/ground_truth/data/ground_truth
+4. ) Add the json that is generated using ‘coco_to_ground_truth.ipynb’ to src/ground_truth/data/ground_truth
 
-5. ) To ‘attributes.json’, add the video with its tags in the following format:
+5. ) To ‘attributes.json’, add the video with its attribute tags in the following format:
 ```json
 {
-    "video_id": [
+    "video_id_1": [
         "attribute 1",
-        "attribute 2"
+        "attribute 2",
+        "attribute 3..."
+    ],
+    "video_id_2": [
+        "attribute 1",
+        "attribute 2",
+        "attribute 3..."
     ]
 }
 ```
 Please reference ‘attributes_list.txt’ file for a list of all possible video attributes.
 
-DON'T include videos with the following:
+DO NOT include videos with the following:
 - Montages (ex: compilations)
 - Professional footage (ex: local news footage)
 - Low-hanging fruit (ex: 20 second video of a giant brawl)
