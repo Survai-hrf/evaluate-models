@@ -1,0 +1,61 @@
+The following is the list of possible attributes for videos included in the ground truth dataset.
+
+Each video collected must include a unique quality from each of the following categories:
+
+Video format:
+- Drone footage 
+- Security camera 
+- First person footage (handheld) 
+- Body cam 
+- Dash cam 
+
+World Region:
+- North America 
+- South America
+- Western Europe 
+- Eastern Europe
+- South East Asia 
+- Eastern Asia
+- Middle East
+- Sub-saharan Africa 
+
+Locale:
+- City 
+- Rural 
+- Interior  
+
+Time:
+- Night (or Dark)
+- Day (or Bright)
+
+Weather:
+- Rain 
+- Snow
+- Overcast 
+- Partly cloudy 
+- Clear
+- Interior 
+
+Contexts (select all that apply):
+- Protest
+- No violence 
+- Contains violence 
+- Extreme violence 
+
+Use of force involving police or uniformed personnel
+- Arresting/restraining 
+- Use of gun
+- Use of blunt force
+- Uniformed personnel present, no use of force
+- Use of pepper spray 
+- Use of chemical smoke 
+
+Vandalism
+- Throwing object 
+- Striking 
+- Spraying
+
+Fight (must be physical)
+- Group fight 
+- Between individuals
+- Peaceful (contains none of the above)

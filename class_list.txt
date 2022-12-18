@@ -1,0 +1,11 @@
+uniformed
+non_uniformed
+riot_shield
+gun
+pepper_spray
+baton
+chemical_smoke
+civilian_vehicle
+emergency_vehicle
+armored_vehicle
+blade
