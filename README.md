@@ -18,7 +18,7 @@ Each video has its own ground truth json located in src/ground_truth/data/ground
 ```
 The script will then compare the predicted labels to the ground truth labels to calculate precision, recall, and mAP. 
 
-To provide further information about a models performance, each video has had its attributes tagged (such as night/day time, violent/non-violent, weather, etc.), allowing for metrics to be generated for each tag. Knowing the specific video contexts that a given model struggles/excels on allows the Glimpse team to collect data to cover these weaknesses. Each videos respective tags can be found in src/ground_truth/data/ground_truth/video_attributes.json, and a full list of possible attributes can be found in attributes_list.json in the root directory. 
+To provide further information about a models performance, each video has had its attributes tagged (such as night/day time, violent/non-violent, weather, etc.), allowing for metrics to be generated for each tag. Knowing the specific video contexts that a given model struggles/excels on allows the Glimpse team to collect data to cover these weaknesses. Each videos respective tags can be found in src/ground_truth/data/video_attributes.json, and a full list of possible attributes can be found in attributes_list.txt in the root directory. 
 
 After running the 'eval.py' script, a models results are stored in a dated folder in the root directory that contains the model config and weights that were used, as well as a ‘performance.json’ file containing the metrics for each video. As of 12/14/2022, this repo only generates metrics for Glimpse’s object detection model.
 
@@ -69,26 +69,26 @@ eval.py accepts the following arguments:
 - --checkpoint
 
 ### --folder
-Specifies the path to the local folder containing the ground truth videos. The script will automatically filter out other file types, so it is okay to pass a folder containing other files like txt or csv. Default is:
+Specifies the path to the local folder containing the ground truth videos. The script will automatically filter out other file types, so it is okay to pass a folder containing other files like txt or csv. Default path is:
 - ```src/ground_truth/videos```
 
 ### --gen-video
 Adding to the command line will output the input video with overlayed bounding boxes into a ‘video_overlays’ folder in the root directory of this repo.
 
 ### --gt
-Specifies the path to the folder containing each videos ground truth json. Default is:
+Specifies the path to the folder containing each videos ground truth json. Default path is:
 - ```src/ground_truth/data/ground_truth```
 
 ### --pred
-Specifies the path to store predicted labels. Default is:
+Specifies the path to store predicted labels. Default path is:
 - ```src/ground_truth/data/predictions```
 
 ### --config
-Specifies the path to folder containing model config. Default is:
+Specifies the path to folder containing model config. Default path is:
 - ```model_artifacts```
 
 ### --checkpoint
-Specifies the path to the folder containing model checkpoints. Default is:
+Specifies the path to the folder containing model checkpoints. Default path is:
 - ```model_artifacts```
 
 NOTE: These defaults will work if the repo is consistent with the format on github. Any changes to the format of the ground truth data will require you to specify these changes using their respective arguments in the command line when running 'eval.py'.
@@ -118,6 +118,8 @@ NOTE: These defaults will work if the repo is consistent with the format on gith
 }
 ```
 Please reference ‘attributes_list.txt’ file for a list of all possible video attributes.
+
+6. ) Add the video to src/ground_truth/videos
 
 DO NOT include videos with the following:
 - Montages (ex: compilations)
