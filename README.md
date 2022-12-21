@@ -1,8 +1,8 @@
-# SurvAI Model Evaluation Repository
+# Glimpse Model Evaluation Repository
 
-This repo contains tools for evaluating SurvAI’s models by generating evaluation metrics such as precision, recall, and mean average precision (mAP). These metrics provide a data-driven way to compare a models accuracy/performance to other models. The repo is designed to be run on the same folder of videos each time. 
+This repo contains tools for evaluating Glimpse’s models by generating evaluation metrics such as precision, recall, and mean average precision (mAP). These metrics provide a data-driven way to compare a models accuracy/performance to other models. The repo is designed to be run on the same folder of videos each time. 
 
-Each video has its own ground truth json located in src/ground_truth/data/ground_truth that contains the correct labels for each frame. Using ‘eval.py’ in the ‘src’ folder, SurvAI's object detection model will be ran on each video in the ‘videos’ folder and generate a predictions json in the same format as the ground truth. The json format is as follows:
+Each video has its own ground truth json located in src/ground_truth/data/ground_truth that contains the correct labels for each frame. Using ‘eval.py’ in the ‘src’ folder, Glimpse's object detection model will be ran on each video in the ‘videos’ folder and generate a predictions json in the same format as the ground truth. The json format is as follows:
 ```json
 [
     [
@@ -18,13 +18,13 @@ Each video has its own ground truth json located in src/ground_truth/data/ground
 ```
 The script will then compare the predicted labels to the ground truth labels to calculate precision, recall, and mAP. 
 
-To provide further information about a models performance, each video has had its attributes tagged (such as night/day time, violent/non-violent, weather, etc.), allowing for metrics to be generated for each tag. Knowing the specific video contexts that a given model struggles/excels on allows the SurvAI team to collect data to cover these weaknesses. Each videos respective tags can be found in src/ground_truth/data/ground_truth/video_attributes.json, and a full list of possible attributes can be found in attributes_list.json in the root directory. 
+To provide further information about a models performance, each video has had its attributes tagged (such as night/day time, violent/non-violent, weather, etc.), allowing for metrics to be generated for each tag. Knowing the specific video contexts that a given model struggles/excels on allows the Glimpse team to collect data to cover these weaknesses. Each videos respective tags can be found in src/ground_truth/data/ground_truth/video_attributes.json, and a full list of possible attributes can be found in attributes_list.json in the root directory. 
 
-After running the 'eval.py' script, a models results are stored in a dated folder in the root directory that contains the model config and weights that were used, as well as a ‘performance.json’ file containing the metrics for each video. As of 12/14/2022, this repo only generates metrics for SurvAI’s object detection model.
+After running the 'eval.py' script, a models results are stored in a dated folder in the root directory that contains the model config and weights that were used, as well as a ‘performance.json’ file containing the metrics for each video. As of 12/14/2022, this repo only generates metrics for Glimpse’s object detection model.
 
 ## Environment
 
-This repo uses the same environment used in SurvAI’s ml-deployment repo. If the 'sdeploy' environment used in ml-deployment is already set up on your local machine, the following instructions can be skipped.
+This repo uses the same environment used in Glimpse’s ml-deployment repo. If the 'sdeploy' environment used in ml-deployment is already set up on your local machine, the following instructions can be skipped.
 
 ### Requirements
 
