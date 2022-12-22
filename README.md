@@ -59,6 +59,7 @@ but ensure that while in your conda environment (this environment is created in 
 2. ) Access the google cloud [survai-dataset](https://console.cloud.google.com/storage/browser/survai-dataset). Inside model_artifacts/od, download:
 - ```MAIN_epoch_54.pth (or the model weights that you wish to test)```
 - ```mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_coco.py```
+
 Place these files in the 'model_artifacts' folder inside the root directory of the evaluate-models repo.
 
 3. ) Cd into the 'evaluate-models' repo that was just cloned and run:
