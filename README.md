@@ -66,6 +66,7 @@ Place these files in the 'model_artifacts' folder inside the root directory of t
 - ```python src/eval.py 0```
 NOTE: '0' is a placeholder for the video_id argument, which will eventually get overwritten by the real file name when the sript iterates through the 'videos' folder.
 
+### Arguments
 eval.py accepts the following arguments:
 - video_id (required, automatically generated)
 - --folder
@@ -75,30 +76,32 @@ eval.py accepts the following arguments:
 - --config
 - --checkpoint
 
-### --folder
+#### --folder
 Specifies the path to the local folder containing the ground truth videos. The script will automatically filter out other file types, so it is okay to pass a folder containing other files like txt or csv. Default path is:
 - ```videos```
 
-### --gen-video
+#### --gen-video
 Adding to the command line will output the input video with overlayed bounding boxes into a ‘video_overlays’ folder in the root directory of this repo.
 
-### --gt
+#### --gt
 Specifies the path to the folder containing each videos ground truth json. Default path is:
 - ```src/ground_truth/data/ground_truth```
 
-### --pred
+#### --pred
 Specifies the path to store predicted labels. Default path is:
 - ```src/ground_truth/data/predictions```
 
-### --config
+#### --config
 Specifies the path to folder containing model config. Default path is:
 - ```model_artifacts```
 
-### --checkpoint
+#### --checkpoint
 Specifies the path to the folder containing model checkpoints. Default path is:
 - ```model_artifacts```
 
-NOTE: These defaults will work if the repo is consistent with the format on github. Any changes to the format of the ground truth data will require you to specify these changes using their respective arguments in the command line when running 'eval.py'.
+### NOTES
+- These defaults will work if the repo is consistent with the format on github. Any changes to the format of the ground truth data will require you to specify these changes using their respective arguments in the command line when running 'eval.py'.
+- There is currently only one video in the ground_truth dataset, so each attributes metrics will all be the same until a new video is added. 
 
 ## Adding Videos to the Ground Truth Dataset
 1. ) Use ‘extract_frames.ipynb’ in the ‘tools’ folder to extract the individual frames from the video you wish to add to the ground truth dataset.
