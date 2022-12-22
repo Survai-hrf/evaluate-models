@@ -6,7 +6,8 @@ import moviepy.editor as mp
 import glob
 import numpy as np
 import collections
-from mmdetection.mmdet.apis import inference_detector, init_detector
+import shutil
+from mmdet.apis import inference_detector, init_detector
 import json
 import glob
 import matplotlib
@@ -17,7 +18,7 @@ def perform_video_od(video_id, gen_video, folder, config, checkpoint, pred):
     
     def calculate_mode(fps_frame_list, current_second):
 
-        class_list = open("model_artifacts/classes.txt","r").readlines()
+        class_list = open("model_artifacts/class_list.txt","r").readlines()
 
         temp_count_storage = {}
 
@@ -250,6 +251,8 @@ def perform_video_od(video_id, gen_video, folder, config, checkpoint, pred):
     # Write file, bbox and label data to json
     with open(f'{pred}/{video_id}_predictions.json', 'w+') as file:
         json.dump(predictions, file)
+
+    shutil.rmtree(VIDEO_DIR)
     
 
 

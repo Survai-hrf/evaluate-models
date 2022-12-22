@@ -22,7 +22,7 @@ def parse_args():
     parser = argparse.ArgumentParser(
         description='Evaluate a models performance')
     parser.add_argument('video_id', help='unique id for saving video and video info')
-    parser.add_argument('--folder', default='src/ground_truth/videos', help='path/to/folder/of/videos')
+    parser.add_argument('--folder', default='videos', help='path/to/folder/of/videos')
     parser.add_argument('--gen-video', default=False, action='store_true', help='generates video overlay')
     parser.add_argument('--gt', default='src/ground_truth/data/ground_truth', help='path/to/ground/truth/folder')
     parser.add_argument('--pred', default='src/ground_truth/data/predictions', help='path/to/store/predictions')
