@@ -101,7 +101,7 @@ Specifies the path to the folder containing model checkpoints. Default path is:
 
 ### NOTES
 - These defaults will work if the repo is consistent with the format on github. Any changes to the format of the ground truth data will require you to specify these changes using their respective arguments in the command line when running 'eval.py'.
-- There is currently only one video in the ground_truth dataset, so each attributes metrics will all be the same until a new video is added. 
+- As of 12/22/2022, there is only one video in the ground_truth dataset, so each attributes metrics will all be the same until a new video is added. 
 
 ## Adding Videos to the Ground Truth Dataset
 1. ) Use ‘extract_frames.ipynb’ in the ‘tools’ folder to extract the individual frames from the video you wish to add to the ground truth dataset.
